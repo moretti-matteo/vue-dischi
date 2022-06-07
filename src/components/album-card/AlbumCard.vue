@@ -29,7 +29,7 @@ export default {
     background-color: #2e3a46;
 
     & img{
-       max-width: 150px;
+       max-width: 100%;
     }
 
     h2{

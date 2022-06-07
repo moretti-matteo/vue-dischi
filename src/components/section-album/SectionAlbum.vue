@@ -4,6 +4,10 @@
             <AlbumCard v-for="(album, i) in albums" :key="i" :album="album"></AlbumCard>
         </div>
 
+        <div v-else-if="albums.length === 0 && !albumsFound" class="noAlbumsFound">
+            <h1>Nessun album trovato</h1>
+        </div>
+
         <BaseLoader v-else></BaseLoader>
 
     </section>
@@ -20,7 +24,9 @@ export default {
     components: { AlbumCard, BaseLoader },
     data() {
         return {
-            albums: []
+            albums: [],
+            albumsFound: true
+
         }
     },
     created() {
@@ -28,12 +34,22 @@ export default {
             .then(resp => {
                 this.albums = resp.data.response;
                 console.log(this.albums);
+                this.albums[0].poster = "";
+                if (this.albums.length === 0) {
+                    this.albumsFound = !this.albumsFound;
+                }
             })
     }
 }
 </script>
 
 <style scoped>
+.noAlbumsFound {
+    text-align: center;
+    font-size: 25px;
+    color: white;
+}
+
 .container {
     padding: 30px;
     display: flex;
