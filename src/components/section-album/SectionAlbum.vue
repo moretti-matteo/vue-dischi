@@ -34,7 +34,6 @@ export default {
             .then(resp => {
                 this.albums = resp.data.response;
                 console.log(this.albums);
-                this.albums[0].poster = "";
                 if (this.albums.length === 0) {
                     this.albumsFound = !this.albumsFound;
                 }
