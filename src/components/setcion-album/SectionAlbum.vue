@@ -3,9 +3,9 @@
         <div v-if="albums.length > 0" class="container">
             <AlbumCard v-for="(album, i) in albums" :key="i" :album="album"></AlbumCard>
         </div>
-        <div v-else class="preload">
-            <h1>Loading...</h1>
-        </div>
+
+        <BaseLoader v-else></BaseLoader>
+
     </section>
 
 </template>
@@ -13,10 +13,11 @@
 <script>
 import AlbumCard from '../album-card/AlbumCard.vue';
 import axios from 'axios';
+import BaseLoader from '../loader/BaseLoader.vue';
 
 export default {
     name: "SectionAlbum",
-    components: { AlbumCard },
+    components: { AlbumCard, BaseLoader },
     data() {
         return {
             albums: []
@@ -33,13 +34,6 @@ export default {
 </script>
 
 <style scoped>
-.preload {
-    text-align: center;
-    color:white;
-    font-size: 25px;
-    margin-top: 10px;
-}
-
 .container {
     padding: 30px;
     display: flex;
