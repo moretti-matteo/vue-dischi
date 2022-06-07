@@ -12,9 +12,8 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 main{
-    background-color: var(--main-color);
-    height: 100vh;
+    height: 100%;
 }
 </style>

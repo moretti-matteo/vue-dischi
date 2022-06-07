@@ -1,6 +1,16 @@
 @import './global-parts/_variables.scss';
 @import './global-parts/_reset.scss';
 
+body,html{
+    height: 100%;
+    width: 100%;
+}
+
+body{
+    font-family: verdana;
+    background-color: var(--main-color);
+
+}
 
 .container {
     max-width: 1200px;

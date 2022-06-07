@@ -5,7 +5,7 @@
         </div>
         <h2>{{album.title}}</h2>
         <h4>{{album.author}}</h4>
-        <h6>{{album.year}}</h6>
+        <h5>{{album.year}}</h5>
     </div>
 </template>
 
@@ -29,7 +29,7 @@ export default {
     background-color: #2e3a46;
 
     & img{
-       max-width: 120px;
+       max-width: 150px;
     }
 
     h2{
@@ -37,7 +37,7 @@ export default {
         margin: 10px 0 20px 0;
     }
 
-    h4,h6{
+    h4,h5{
         color:grey;
     }
 }

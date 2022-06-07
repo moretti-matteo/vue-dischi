@@ -1,7 +1,13 @@
 <template>
-    <section class="container">
-        <AlbumCard v-for="(album, i) in albums" :key="i" :album="album"></AlbumCard>
+    <section>
+        <div v-if="albums.length > 0" class="container">
+            <AlbumCard v-for="(album, i) in albums" :key="i" :album="album"></AlbumCard>
+        </div>
+        <div v-else class="preload">
+            <h1>Loading...</h1>
+        </div>
     </section>
+
 </template>
 
 <script>
@@ -27,12 +33,17 @@ export default {
 </script>
 
 <style scoped>
-
+.preload {
+    text-align: center;
+    color:white;
+    font-size: 25px;
+    margin-top: 10px;
+}
 
 .container {
-    padding-top: 30px;;
+    padding: 30px;
     display: flex;
     flex-wrap: wrap;
-    gap:15px 30px;
+    gap: 15px 30px;
 }
 </style>

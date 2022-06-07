@@ -15,9 +15,7 @@ export default {
 <style lang="scss" scoped>
 
 header{
-    border:1px solid;
     background: var(--header-color);
-    
 }
 
 img{
