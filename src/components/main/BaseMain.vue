@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import SectionAlbum from '../setcion-album/SectionAlbum.vue';
+import SectionAlbum from '../section-album/SectionAlbum.vue';
 export default {
     name: "BaseMain",
     components: { SectionAlbum }
