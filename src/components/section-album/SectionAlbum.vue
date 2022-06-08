@@ -1,7 +1,11 @@
 <template>
     <section>
         <div v-if="albums.length > 0" class="container">
-            <AlbumCard v-for="(album, i) in albums" :key="i" :album="album"></AlbumCard>
+            <div class="container">
+                <AlbumCard v-for="(album, i) in albumFiltered" :key="i" :album="album"></AlbumCard>
+
+            </div>
+
         </div>
 
         <div v-else-if="albums.length === 0 && !albumsFound" class="noAlbumsFound">
@@ -25,20 +29,34 @@ export default {
     data() {
         return {
             albums: [],
-            albumsFound: true
+            albumsFound: true,
 
         }
+    },
+    props: {
+        genre: String
+    },
+    methods: {
+
     },
     created() {
         axios.get('https://flynn.boolean.careers/exercises/api/array/music')
             .then(resp => {
                 this.albums = resp.data.response;
                 console.log(this.albums);
-                if (this.albums.length === 0) {
-                    this.albumsFound = !this.albumsFound;
-                }
+                // this.albums[0].poster = "";
+                this.albumsFound = this.albums.length > 0 ? true : false;
+
             })
-    }
+    },
+    computed: {
+        albumFiltered() {
+            return this.albums.filter(album => album.genre.toLowerCase().includes(this.genre))
+        }
+
+    },
+
+
 }
 </script>
 
@@ -53,6 +71,7 @@ export default {
     padding: 30px;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     gap: 15px 30px;
 }
 </style>

@@ -1,7 +1,8 @@
 <template>
   <div id="app">
-    <BaseHeader></BaseHeader>
-    <BaseMain></BaseMain>
+    <BaseHeader @search="filterAlbums"></BaseHeader>
+    <BaseMain :genre="genre">
+    </BaseMain>
   </div>
 </template>
 
@@ -14,14 +15,24 @@ export default {
   components: {
     BaseHeader,
     BaseMain
-}
+  },
+  data(){
+    return{
+      genre:""
+    }
+  },
+  methods: {
+
+    filterAlbums(genre) {
+      this.genre = genre;
+    }
+
+  }
 }
 </script>
 
 <style lang="scss">
 @import './assets/style/global.scss';
 
-#app {
-
-}
+#app {}
 </style>
